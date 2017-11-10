@@ -20,7 +20,7 @@
   when: network_interfaces
   with_items: "{{ network_interface_required_packages }}"
 
-- include: all_interfaces.yml
+- include_tasks: all_interfaces.yml
   when: network_interfaces
 
 - name: configurations
@@ -35,7 +35,7 @@
   - network restart interface service
   - network restart interface command
 
-- include: manage_devices.yml
+- include_tasks: manage_devices.yml
   when:
   - network_manage_devices
   - network_interfaces
